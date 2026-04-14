@@ -22,8 +22,31 @@
     <script src="{% static 'js/ui.js' %}"></script>
     {% block extra_scripts %}{% endblock %}
 </body>
+</html><!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CJB Web Development{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Professional Python/Django development services in Devon. Custom web applications, templates, hosting, and contract work.{% endblock %}">
+    <meta name="keywords" content="python django developer devon, web development, django templates, hosting, contract development">
+    <link rel="stylesheet" href="{% static 'css/design.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% include 'includes/header.html' %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'includes/footer.html' %}
+
+    <script src="{% static 'js/ui.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
 </html>
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     // Cursor glow
     const glow = document.getElementById('cursorGlow');
     if (glow && window.innerWidth > 768) {
