@@ -1,0 +1,22 @@
+<header class="header">
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="{% url 'core:home' %}" class="brand-link">
+                    <span class="brand-text">CJB Web Development</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{% url 'core:home' %}" class="nav-link">Home</a>
+                <a href="{% url 'core:services' %}" class="nav-link">Services</a>
+                <a href="{% url 'core:portfolio' %}" class="nav-link">Portfolio</a>
+                <a href="{% url 'core:contact' %}" class="nav-link">Contact</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+</header>

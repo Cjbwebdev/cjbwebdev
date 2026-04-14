@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Portfolio - CJB Web Development{% endblock %}
+
+{% block meta_description %}View my portfolio of Django web applications including catn.site, urentmy.com, and policygen.site. Python/Django developer in Devon.{% endblock %}
+
+{% block content %}
+<section class="portfolio">
+    <div class="container">
+        <h1>Portfolio</h1>
+        <p>Here are some of the Django applications I've built for clients.</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item-detail">
+                <h2>catn.site</h2>
+                <p>A modern web application built with Django, featuring user authentication, content management, and responsive design.</p>
+                <div class="tech-stack">
+                    <span class="tech">Django</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">PostgreSQL</span>
+                    <span class="tech">HTML/CSS</span>
+                </div>
+                <a href="https://catn.site" target="_blank" class="btn btn-primary">Visit Site</a>
+            </div>
+            <div class="portfolio-item-detail">
+                <h2>urentmy.com</h2>
+                <p>An e-commerce platform with custom features including product management, shopping cart, and payment integration.</p>
+                <div class="tech-stack">
+                    <span class="tech">Django</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">Stripe</span>
+                    <span class="tech">SQLite</span>
+                </div>
+                <a href="https://urentmy.com" target="_blank" class="btn btn-primary">Visit Site</a>
+            </div>
+            <div class="portfolio-item-detail">
+                <h2>policygen.site</h2>
+                <p>A policy generation system that creates customized documents based on user input and templates.</p>
+                <div class="tech-stack">
+                    <span class="tech">Django</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">PDF Generation</span>
+                    <span class="tech">MySQL</span>
+                </div>
+                <a href="https://policygen.site" target="_blank" class="btn btn-primary">Visit Site</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

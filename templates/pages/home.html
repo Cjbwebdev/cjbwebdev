@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}CJB Web Development - Python/Django Developer in Devon{% endblock %}
+
+{% block meta_description %}Professional Python/Django development services in Devon. Custom web applications, templates, hosting, and contract work for businesses.{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-container">
+        <h1 class="hero-title">Professional Python/Django Development</h1>
+        <p class="hero-subtitle">Building robust web applications and custom solutions in Devon</p>
+        <div class="hero-actions">
+            <a href="{% url 'core:services' %}" class="btn btn-primary">View Services</a>
+            <a href="{% url 'core:contact' %}" class="btn btn-secondary">Get in Touch</a>
+        </div>
+    </div>
+</section>
+
+<section class="services-preview">
+    <div class="container">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Django Templates</h3>
+                <p>Ready-to-use Django templates for rapid development. Starting from £99.</p>
+                <a href="{% url 'core:services' %}" class="btn btn-outline">Learn More</a>
+            </div>
+            <div class="service-card">
+                <h3>Web Hosting</h3>
+                <p>Reliable hosting solutions for Django applications. £149/month.</p>
+                <a href="{% url 'core:services' %}" class="btn btn-outline">Learn More</a>
+            </div>
+            <div class="service-card">
+                <h3>Contract Development</h3>
+                <p>Custom Django development and consulting services.</p>
+                <a href="{% url 'core:services' %}" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portfolio-preview">
+    <div class="container">
+        <h2>Recent Projects</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>catn.site</h3>
+                <p>Modern web application built with Django</p>
+                <a href="{% url 'core:portfolio' %}" class="btn btn-outline">View Details</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>urentmy.com</h3>
+                <p>E-commerce platform with custom features</p>
+                <a href="{% url 'core:portfolio' %}" class="btn btn-outline">View Details</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>policygen.site</h3>
+                <p>Policy generation system</p>
+                <a href="{% url 'core:portfolio' %}" class="btn btn-outline">View Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Contact me today to discuss your Django development needs.</p>
+        <a href="{% url 'core:contact' %}" class="btn btn-primary">Contact Me</a>
+    </div>
+</section>
+{% endblock %}

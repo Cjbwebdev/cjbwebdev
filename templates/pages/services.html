@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Services - CJB Web Development{% endblock %}
+
+{% block meta_description %}Professional Django development services including templates, hosting, and contract work. Python/Django developer in Devon.{% endblock %}
+
+{% block content %}
+<section class="services">
+    <div class="container">
+        <h1>Services</h1>
+        <div class="services-grid">
+            <div class="service-detail">
+                <h2>Django Templates</h2>
+                <p>Ready-to-use Django templates for rapid web development. Perfect for startups and small businesses looking to launch quickly.</p>
+                <ul>
+                    <li>Responsive design</li>
+                    <li>SEO optimized</li>
+                    <li>Customizable components</li>
+                    <li>Documentation included</li>
+                </ul>
+                <p class="price">Starting from £99</p>
+                <a href="{% url 'core:contact' %}" class="btn btn-primary">Get Quote</a>
+            </div>
+            <div class="service-detail">
+                <h2>Web Hosting</h2>
+                <p>Reliable hosting solutions specifically configured for Django applications. Includes SSL, backups, and monitoring.</p>
+                <ul>
+                    <li>Django optimized servers</li>
+                    <li>SSL certificates included</li>
+                    <li>Daily backups</li>
+                    <li>24/7 monitoring</li>
+                    <li>Email support</li>
+                </ul>
+                <p class="price">£149/month</p>
+                <a href="{% url 'core:contact' %}" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="service-detail">
+                <h2>Contract Development</h2>
+                <p>Custom Django development and consulting services. From small features to full application development.</p>
+                <ul>
+                    <li>Custom web applications</li>
+                    <li>API development</li>
+                    <li>Database design</li>
+                    <li>Code review and optimization</li>
+                    <li>Maintenance and support</li>
+                </ul>
+                <p class="price">£50/hour</p>
+                <a href="{% url 'core:contact' %}" class="btn btn-primary">Discuss Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
