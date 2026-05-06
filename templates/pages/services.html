@@ -1,52 +1,199 @@
 {% extends 'base.html' %}
 
-{% block title %}Services - CJB Web Development{% endblock %}
-
-{% block meta_description %}Professional Django development services including templates, hosting, and contract work. Python/Django developer in Devon.{% endblock %}
+{% block title %}Services — Django Development, Hosting & Automation | CJB Web Development{% endblock %}
+{% block meta_description %}Professional Django development services in Devon. Custom web apps, managed hosting, contract development, and LLM automation. Python/Django contractor Devon UK.{% endblock %}
 
 {% block content %}
-<section class="services">
-    <div class="container">
-        <h1>Services</h1>
-        <div class="services-grid">
-            <div class="service-detail">
-                <h2>Django Templates</h2>
-                <p>Ready-to-use Django templates for rapid web development. Perfect for startups and small businesses looking to launch quickly.</p>
-                <ul>
-                    <li>Responsive design</li>
-                    <li>SEO optimized</li>
-                    <li>Customizable components</li>
-                    <li>Documentation included</li>
-                </ul>
-                <p class="price">Starting from £99</p>
-                <a href="{% url 'core:contact' %}" class="btn btn-primary">Get Quote</a>
+<!-- Header -->
+<section class="pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4 block">Services</span>
+        <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-4">What I Offer</h1>
+        <p class="text-gray-400 text-lg max-w-2xl">
+            End-to-end Django development — from initial concept through to deployed, maintained applications. Based in Devon, serving clients across the UK.
+        </p>
+    </div>
+</section>
+
+<!-- Services Detail -->
+<section class="py-8 pb-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+
+        <!-- Django Development -->
+        <div class="glass rounded-2xl p-8 card-lift" data-animate>
+            <div class="flex items-start gap-5">
+                <div class="w-14 h-14 rounded-xl bg-accent-500/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-code text-accent-400 text-2xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-white font-display font-bold text-2xl mb-3">Django Web Development</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Custom Django applications built from the ground up. REST APIs, admin dashboards, SaaS platforms, e-commerce, content management — whatever your business needs. Every project includes proper testing, security hardening, and SEO optimisation.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-3 mb-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Custom Django applications
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> REST API development
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> PostgreSQL / MySQL / SQLite
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Stripe & payment integration
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> SEO-optimised architecture
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Security hardening
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">Django</span><span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">REST API</span><span class="tech-tag">Stripe</span><span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                </div>
             </div>
-            <div class="service-detail">
-                <h2>Web Hosting</h2>
-                <p>Reliable hosting solutions specifically configured for Django applications. Includes SSL, backups, and monitoring.</p>
-                <ul>
-                    <li>Django optimized servers</li>
-                    <li>SSL certificates included</li>
-                    <li>Daily backups</li>
-                    <li>24/7 monitoring</li>
-                    <li>Email support</li>
-                </ul>
-                <p class="price">£149/month</p>
-                <a href="{% url 'core:contact' %}" class="btn btn-primary">Sign Up</a>
+        </div>
+
+        <!-- Web Hosting -->
+        <div class="glass rounded-2xl p-8 card-lift" data-animate>
+            <div class="flex items-start gap-5">
+                <div class="w-14 h-14 rounded-xl bg-accent-500/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-cloud text-accent-400 text-2xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-white font-display font-bold text-2xl mb-3">Managed Django Hosting</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Your Django application hosted on Railway, Render, or your preferred infrastructure — configured, deployed, monitored, and maintained. Includes automatic backups, SSL, CDN, and performance optimisation. From £149/month.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-3 mb-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Railway / Render deployment
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Automatic SSL & CDN
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> PostgreSQL managed database
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> 24/7 uptime monitoring
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Automated backups
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Performance optimisation
+                        </div>
+                    </div>
+                    <div class="text-2xl font-display font-bold text-white mb-1">£149<span class="text-gray-500 text-base font-normal">/month</span></div>
+                    <p class="text-sm text-gray-500">Includes hosting infrastructure, deployment, and maintenance. Domain and external services not included.</p>
+                </div>
             </div>
-            <div class="service-detail">
-                <h2>Contract Development</h2>
-                <p>Custom Django development and consulting services. From small features to full application development.</p>
-                <ul>
-                    <li>Custom web applications</li>
-                    <li>API development</li>
-                    <li>Database design</li>
-                    <li>Code review and optimization</li>
-                    <li>Maintenance and support</li>
-                </ul>
-                <p class="price">£50/hour</p>
-                <a href="{% url 'core:contact' %}" class="btn btn-primary">Discuss Project</a>
+        </div>
+
+        <!-- Contract Development -->
+        <div class="glass rounded-2xl p-8 card-lift" data-animate>
+            <div class="flex items-start gap-5">
+                <div class="w-14 h-14 rounded-xl bg-accent-500/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-file-contract text-accent-400 text-2xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-white font-display font-bold text-2xl mb-3">Contract Development</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Available for contract Django development work. Whether you need a feature built, a bug fixed, an architecture review, or ongoing development support — I work efficiently and communicate clearly throughout.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-3 mb-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Feature development
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Bug fixes & maintenance
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Architecture & code review
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Performance optimisation
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Team augmentation
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Migration & upgrades
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- Automation & LLM -->
+        <div class="glass rounded-2xl p-8 card-lift border border-accent-500/10" id="automation" data-animate>
+            <div class="flex items-start gap-5">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-500/20 to-brand-500/20 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-robot text-accent-400 text-2xl"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <h2 class="text-white font-display font-bold text-2xl">Automation & LLM Integration</h2>
+                        <span class="px-2.5 py-0.5 rounded-full bg-accent-500/10 text-accent-400 text-xs font-medium border border-accent-500/20">Specialised</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Experience configuring and deploying large language models for business automation. I set up and manage LLM-powered workflows that handle data processing, content generation, automated reporting, and intelligent task orchestration — all running reliably in production.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-3 mb-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> LLM configuration & deployment
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Automated data processing
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Content generation pipelines
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Intelligent task orchestration
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> API integration with OpenAI, Anthropic, etc.
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-accent-400 text-xs"></i> Automated reporting & monitoring
+                        </div>
+                    </div>
+
+                    <!-- Code example -->
+                    <div class="code-block text-gray-300 text-xs leading-relaxed">
+                        <span class="text-gray-500"># Example: Automated data processing pipeline</span>
+                        <span class="text-accent-400">from</span> <span class="text-brand-400">django.core.management</span> <span class="text-accent-400">import</span> BaseCommand<br>
+                        <span class="text-accent-400">from</span> <span class="text-brand-400">openai</span> <span class="text-accent-400">import</span> OpenAI<br><br>
+                        <span class="text-accent-400">class</span> <span class="text-white">Command</span>(BaseCommand):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-500">"""Automated content pipeline — scrapes, processes, stores."""</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-accent-400">def</span> <span class="text-brand-400">handle</span>(<span class="text-accent-400">self</span>, *args, **kwargs):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client = OpenAI()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = scrape_sources()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processed = client.process(data)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;store_results(processed)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-accent-400">self</span>.stdout.write(<span class="text-green-400">'✓ Pipeline complete'</span>)<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="pb-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="glass rounded-2xl p-10">
+            <h2 class="font-display text-2xl font-bold text-white mb-3">Not Sure What You Need?</h2>
+            <p class="text-gray-400 mb-8">Drop me a message with what you're working on. I'll give you an honest assessment — no obligation.</p>
+            <a href="{% url 'core:contact' %}" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-8 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent-500/20">
+                Get in Touch <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
         </div>
     </div>
 </section>

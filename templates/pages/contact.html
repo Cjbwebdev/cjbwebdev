@@ -1,63 +1,122 @@
 {% extends 'base.html' %}
 
-{% block title %}Contact - CJB Web Development{% endblock %}
-
-{% block meta_description %}Get in touch with CJB Web Development for Python/Django development services in Devon. Contact form and details.{% endblock %}
+{% block title %}Contact — CJB Web Development | Django Developer Devon{% endblock %}
+{% block meta_description %}Get in touch with CJB Web Development for Django development, hosting, and contract work. Based in Devon, UK. Email support@cjbwebdevelopment.com{% endblock %}
 
 {% block content %}
-<section class="contact">
-    <div class="container">
-        <h1>Contact Me</h1>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h2>Get in Touch</h2>
-                <p>I'm available for Django development projects, template sales, and hosting services.</p>
-                <div class="contact-details">
-                    <p><strong>Email:</strong> support@cjbwebdevelopment.com</p>
-                    <p><strong>Location:</strong> Devon, UK</p>
-                    <p><strong>Specialties:</strong> Python, Django, Web Development</p>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="{{ form.name.id_for_label }}">Name</label>
-                        {{ form.name }}
-                        {% if form.name.errors %}
-                            <div class="error">{{ form.name.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Email</label>
-                        {{ form.email }}
-                        {% if form.email.errors %}
-                            <div class="error">{{ form.email.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        <label for="{{ form.subject.id_for_label }}">Subject</label>
-                        {{ form.subject }}
-                        {% if form.subject.errors %}
-                            <div class="error">{{ form.subject.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        <label for="{{ form.message.id_for_label }}">Message</label>
-                        {{ form.message }}
-                        {% if form.message.errors %}
-                            <div class="error">{{ form.message.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-                {% if messages %}
-                    <div class="messages">
+<!-- Header -->
+<section class="pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4 block">Contact</span>
+        <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-4">Let's Talk</h1>
+        <p class="text-gray-400 text-lg max-w-2xl">
+            Have a project in mind? Need a Django contractor? Just want to ask a question? Drop me a message — I read every one.
+        </p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-8 pb-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-5 gap-8">
+            <!-- Form -->
+            <div class="lg:col-span-3">
+                <div class="glass rounded-2xl p-6 sm:p-8">
+                    {% if messages %}
+                    <div class="mb-6">
                         {% for message in messages %}
-                            <div class="message {{ message.tags }}">{{ message }}</div>
+                        <div class="px-4 py-3 rounded-xl text-sm font-medium {% if message.tags == 'success' %}bg-green-500/10 text-green-400 border border-green-500/20{% else %}bg-red-500/10 text-red-400 border border-red-500/20{% endif %}">
+                            {{ message }}
+                        </div>
                         {% endfor %}
                     </div>
-                {% endif %}
+                    {% endif %}
+
+                    <form method="POST" action="{% url 'core:contact' %}" class="space-y-5">
+                        {% csrf_token %}
+                        <div>
+                            <label for="id_name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                            <input type="text" name="name" id="id_name" required
+                                class="w-full px-4 py-3 bg-dark-400 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-all text-sm"
+                                placeholder="Your name">
+                            {% if form.name.errors %}<p class="text-red-400 text-xs mt-1">{{ form.name.errors.0 }}</p>{% endif %}
+                        </div>
+
+                        <div>
+                            <label for="id_email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                            <input type="email" name="email" id="id_email" required
+                                class="w-full px-4 py-3 bg-dark-400 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-all text-sm"
+                                placeholder="your@email.com">
+                            {% if form.email.errors %}<p class="text-red-400 text-xs mt-1">{{ form.email.errors.0 }}</p>{% endif %}
+                        </div>
+
+                        <div>
+                            <label for="id_subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                            <input type="text" name="subject" id="id_subject" required
+                                class="w-full px-4 py-3 bg-dark-400 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-all text-sm"
+                                placeholder="What's this about?">
+                            {% if form.subject.errors %}<p class="text-red-400 text-xs mt-1">{{ form.subject.errors.0 }}</p>{% endif %}
+                        </div>
+
+                        <div>
+                            <label for="id_message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea name="message" id="id_message" rows="5" required
+                                class="w-full px-4 py-3 bg-dark-400 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-all text-sm resize-none"
+                                placeholder="Tell me about your project, timeline, budget — whatever you've got."></textarea>
+                            {% if form.message.errors %}<p class="text-red-400 text-xs mt-1">{{ form.message.errors.0 }}</p>{% endif %}
+                        </div>
+
+                        <button type="submit" class="w-full bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-6 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent-500/20 flex items-center justify-center gap-2 group">
+                            Send Message
+                            <i class="fa-solid fa-paper-plane group-hover:translate-x-1 transition-transform text-sm"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Email -->
+                <div class="glass rounded-2xl p-6" data-animate>
+                    <div class="w-10 h-10 rounded-lg bg-accent-500/10 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-envelope text-accent-400"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-1">Email</h3>
+                    <a href="mailto:support@cjbwebdevelopment.com" class="text-gray-400 hover:text-accent-400 transition-colors text-sm break-all">support@cjbwebdevelopment.com</a>
+                </div>
+
+                <!-- Location -->
+                <div class="glass rounded-2xl p-6" data-animate>
+                    <div class="w-10 h-10 rounded-lg bg-accent-500/10 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-location-dot text-accent-400"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-1">Location</h3>
+                    <p class="text-gray-400 text-sm">Devon, United Kingdom</p>
+                    <p class="text-gray-500 text-xs mt-1">Available for remote contract work across the UK</p>
+                </div>
+
+                <!-- Response Time -->
+                <div class="glass rounded-2xl p-6" data-animate>
+                    <div class="w-10 h-10 rounded-lg bg-accent-500/10 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-clock text-accent-400"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-1">Response Time</h3>
+                    <p class="text-gray-400 text-sm">Usually within 24 hours</p>
+                    <p class="text-gray-500 text-xs mt-1">Weekdays — sometimes faster on the same day</p>
+                </div>
+
+                <!-- Social -->
+                <div class="glass rounded-2xl p-6" data-animate>
+                    <h3 class="text-white font-semibold mb-4">Connect</h3>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

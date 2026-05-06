@@ -1,48 +1,83 @@
 {% extends 'base.html' %}
 
-{% block title %}Portfolio - CJB Web Development{% endblock %}
-
-{% block meta_description %}View my portfolio of Django web applications including catn.site, urentmy.com, and policygen.site. Python/Django developer in Devon.{% endblock %}
+{% block title %}Portfolio — Django Projects by CJB Web Development{% endblock %}
+{% block meta_description %}View my portfolio of live Django web applications including holiday comparison platforms, content sites, rental marketplaces, and automation tools. Built in Devon, UK.{% endblock %}
 
 {% block content %}
-<section class="portfolio">
-    <div class="container">
-        <h1>Portfolio</h1>
-        <p>Here are some of the Django applications I've built for clients.</p>
-        <div class="portfolio-grid">
-            <div class="portfolio-item-detail">
-                <h2>catn.site</h2>
-                <p>A modern web application built with Django, featuring user authentication, content management, and responsive design.</p>
-                <div class="tech-stack">
-                    <span class="tech">Django</span>
-                    <span class="tech">Python</span>
-                    <span class="tech">PostgreSQL</span>
-                    <span class="tech">HTML/CSS</span>
+<!-- Header -->
+<section class="pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4 block">Portfolio</span>
+        <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-4">Live Projects</h1>
+        <p class="text-gray-400 text-lg max-w-2xl">
+            Every project listed here is live, built with Django, and maintained in production. Click through to see each one in action.
+        </p>
+    </div>
+</section>
+
+<!-- Projects Grid -->
+<section class="py-8 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for project in projects %}
+            <div class="glass rounded-2xl overflow-hidden card-lift flex flex-col" data-animate>
+                <!-- Image -->
+                <div class="relative h-52 bg-gradient-to-br from-dark-300 to-dark-400 flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-dots opacity-30"></div>
+                    {% if project.image %}
+                    <img src="{{ project.image }}" alt="{{ project.name }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-500/90 to-transparent"></div>
+                    {% else %}
+                    <span class="font-mono text-accent-500/20 text-7xl font-bold select-none">{{ project.name|slice:":1" }}</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-500/80 to-transparent"></div>
+                    {% endif %}
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <span class="px-2.5 py-1 rounded-full bg-dark-500/80 backdrop-blur text-xs font-mono text-accent-400 border border-accent-500/20">
+                            {{ project.tech }}
+                        </span>
+                        {% if project.status == 'live' %}
+                        <span class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-green-500/10 backdrop-blur text-xs text-green-400 border border-green-500/20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Live
+                        </span>
+                        {% endif %}
+                    </div>
                 </div>
-                <a href="https://catn.site" target="_blank" class="btn btn-primary">Visit Site</a>
-            </div>
-            <div class="portfolio-item-detail">
-                <h2>urentmy.com</h2>
-                <p>An e-commerce platform with custom features including product management, shopping cart, and payment integration.</p>
-                <div class="tech-stack">
-                    <span class="tech">Django</span>
-                    <span class="tech">Python</span>
-                    <span class="tech">Stripe</span>
-                    <span class="tech">SQLite</span>
+
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <h2 class="text-white font-semibold text-xl">{{ project.name }}</h2>
+                        <a href="{{ project.url }}" target="_blank" rel="noopener" class="shrink-0 w-8 h-8 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-500 hover:text-accent-400 transition-all mt-0.5" title="Visit {{ project.name }}">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">{{ project.long_desc }}</p>
+
+                    <!-- Tech Stack -->
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        {% for tag in project.tags %}
+                        <span class="tech-tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Links -->
+                    <div class="flex gap-3 pt-4 border-t border-white/5">
+                        <a href="{{ project.url }}" target="_blank" rel="noopener" class="flex-1 text-center bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-4 py-2.5 rounded-lg text-sm transition-all">
+                            Visit Site <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                        </a>
+                    </div>
                 </div>
-                <a href="https://urentmy.com" target="_blank" class="btn btn-primary">Visit Site</a>
             </div>
-            <div class="portfolio-item-detail">
-                <h2>policygen.site</h2>
-                <p>A policy generation system that creates customized documents based on user input and templates.</p>
-                <div class="tech-stack">
-                    <span class="tech">Django</span>
-                    <span class="tech">Python</span>
-                    <span class="tech">PDF Generation</span>
-                    <span class="tech">MySQL</span>
-                </div>
-                <a href="https://policygen.site" target="_blank" class="btn btn-primary">Visit Site</a>
-            </div>
+            {% endfor %}
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-16 pt-12 border-t border-white/5">
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Want to be next?</h2>
+            <p class="text-gray-400 mb-6">If you need a Django application built, deployed, and maintained — let's talk.</p>
+            <a href="{% url 'core:contact' %}" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-8 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent-500/20">
+                Start Your Project <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
         </div>
     </div>
 </section>

@@ -1,22 +1,53 @@
-<header class="header">
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="{% url 'core:home' %}" class="brand-link">
-                    <span class="brand-text">CJB Web Development</span>
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="siteHeader">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 lg:h-20">
+            <!-- Logo -->
+            <a href="{% url 'core:home' %}" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center font-mono font-bold text-sm text-dark-500 group-hover:shadow-lg group-hover:shadow-accent-500/20 transition-all">
+                    CJ
+                </div>
+                <span class="font-display font-bold text-lg text-white hidden sm:block">
+                    CJB<span class="text-accent-400">WebDev</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center gap-1">
+                <a href="{% url 'core:home' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'home' %}text-accent-400 bg-white/5{% endif %}">Home</a>
+                <a href="{% url 'core:services' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'services' %}text-accent-400 bg-white/5{% endif %}">Services</a>
+                <a href="{% url 'core:portfolio' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'portfolio' %}text-accent-400 bg-white/5{% endif %}">Portfolio</a>
+                <a href="{% url 'core:contact' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'contact' %}text-accent-400 bg-white/5{% endif %}">Contact</a>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden lg:block">
+                <a href="{% url 'core:contact' %}" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-5 py-2.5 rounded-lg text-sm transition-all hover:shadow-lg hover:shadow-accent-500/20">
+                    Start a Project <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
             </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="{% url 'core:home' %}" class="nav-link">Home</a>
-                <a href="{% url 'core:services' %}" class="nav-link">Services</a>
-                <a href="{% url 'core:portfolio' %}" class="nav-link">Portfolio</a>
-                <a href="{% url 'core:contact' %}" class="nav-link">Contact</a>
-            </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="lg:hidden flex flex-col gap-1.5 p-2 group" id="mobileToggle" aria-label="Toggle menu">
+                <span class="block w-6 h-0.5 bg-gray-400 group-[.open]:bg-accent-400 transition-all origin-center group-[.open]:rotate-45 group-[.open]:translate-y-2"></span>
+                <span class="block w-6 h-0.5 bg-gray-400 group-[.open]:bg-transparent transition-all group-[.open]:opacity-0"></span>
+                <span class="block w-6 h-0.5 bg-gray-400 group-[.open]:bg-accent-400 transition-all origin-center group-[.open]:-rotate-45 group-[.open]:-translate-y-2"></span>
             </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden pb-6" id="mobileMenu">
+            <div class="flex flex-col gap-1 bg-dark-300 rounded-2xl p-4 border border-white/5 shadow-2xl">
+                <a href="{% url 'core:home' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Home</a>
+                <a href="{% url 'core:services' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Services</a>
+                <a href="{% url 'core:portfolio' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Portfolio</a>
+                <a href="{% url 'core:contact' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Contact</a>
+                <hr class="border-white/5 my-2">
+                <a href="{% url 'core:contact' %}" class="mx-4 text-center bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-5 py-3 rounded-xl transition-all text-sm">
+                    Start a Project <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
+            </div>
         </div>
     </nav>
 </header>
+<!-- Spacer for fixed header -->
+<div class="h-16 lg:h-20"></div>

@@ -1,34 +1,83 @@
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>CJB Web Development</h3>
-                <p>Professional Python/Django development services in Devon. Building robust web applications and custom solutions.</p>
+<footer class="bg-dark-600 border-t border-white/5 pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Brand -->
+            <div class="lg:col-span-1">
+                <a href="{% url 'core:home' %}" class="flex items-center gap-3 mb-4">
+                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center font-mono font-bold text-sm text-dark-500">
+                        CJ
+                    </div>
+                    <span class="font-display font-bold text-lg text-white">
+                        CJB<span class="text-accent-400">WebDev</span>
+                    </span>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Professional Python/Django development in Devon. Custom web applications, automation, and hosting for businesses that need reliable digital solutions.
+                </p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="mailto:support@cjbwebdevelopment.com" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="{% url 'core:services' %}">Django Templates</a></li>
-                    <li><a href="{% url 'core:services' %}">Web Hosting</a></li>
-                    <li><a href="{% url 'core:services' %}">Contract Development</a></li>
+
+            <!-- Services -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Services</h4>
+                <ul class="space-y-3">
+                    <li><a href="{% url 'core:services' %}" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Django Development</a></li>
+                    <li><a href="{% url 'core:services' %}" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Web Hosting</a></li>
+                    <li><a href="{% url 'core:services' %}" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Contract Development</a></li>
+                    <li><a href="{% url 'core:services' %}#automation" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Automation & LLM</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h4>Portfolio</h4>
-                <ul>
-                    <li><a href="{% url 'core:portfolio' %}">catn.site</a></li>
-                    <li><a href="{% url 'core:portfolio' %}">urentmy.com</a></li>
-                    <li><a href="{% url 'core:portfolio' %}">policygen.site</a></li>
+
+            <!-- Portfolio -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Portfolio</h4>
+                <ul class="space-y-3">
+                    <li><a href="{% url 'core:portfolio' %}" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">All Projects</a></li>
+                    <li><a href="https://holidayhub.site" target="_blank" rel="noopener" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">HolidayHub</a></li>
+                    <li><a href="https://catn.site" target="_blank" rel="noopener" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">CatN</a></li>
+                    <li><a href="https://urentmy.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Renty</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>Email: support@cjbwebdevelopment.com</p>
-                <p>Location: Devon, UK</p>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Contact</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-2 text-gray-400">
+                        <i class="fa-solid fa-envelope text-accent-500 mt-0.5"></i>
+                        <a href="mailto:support@cjbwebdevelopment.com" class="hover:text-accent-400 transition-colors">support@cjbwebdevelopment.com</a>
+                    </li>
+                    <li class="flex items-start gap-2 text-gray-400">
+                        <i class="fa-solid fa-location-dot text-accent-500 mt-0.5"></i>
+                        <span>Devon, United Kingdom</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-gray-400">
+                        <i class="fa-solid fa-clock text-accent-500 mt-0.5"></i>
+                        <span>Available for contract work</span>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 CJB Web Development. All rights reserved.</p>
+
+        <!-- Bottom -->
+        <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-500 text-sm">
+                &copy; {% now "Y" %} CJB Web Development. All rights reserved.
+            </p>
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy Policy</a>
+                <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms</a>
+            </div>
         </div>
     </div>
 </footer>
