@@ -2,6 +2,6 @@
 builder = "NIXPACKS"
 
 [deploy]
-startCommand = "gunicorn config.wsgi --log-file -"
+startCommand = "./entrypoint.sh"
 healthcheckPath = "/"
 restartPolicyType = "ON_FAILURE"
