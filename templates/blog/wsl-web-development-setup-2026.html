@@ -1,0 +1,41 @@
+<article>
+<h2>Stop dual booting. WSL is good enough now.</h2>
+
+<p>I've built and deployed over a dozen SaaS products in the last two years. Every single one was developed inside WSL on a Windows machine. Not a Mac. Not a dedicated Linux box. Just Windows with the Linux kernel sitting underneath it. And it works better than most people realise.</p>
+
+<p>WSL2 arrived in 2020 and for a while it was rough. File performance between the Windows and Linux filesystems was slow enough to be unusable. You'd run npm install inside /mnt/c/ and wait five minutes. That's fixed now. Not completely, but enough that you can work without wanting to throw your laptop out the window.</p>
+
+<h2>One rule that saves hours of pain</h2>
+
+<p>Keep your project files inside the Linux filesystem. That means /home/your-username/projects, not /mnt/c/Users/you/Desktop/projects. The speed difference is still significant. VS Code's Remote WSL extension handles this automatically. You open a folder and it just works. You won't notice you're in a VM.</p>
+
+<p>This is the single mistake I see people make over and over. They clone their repos into a Windows folder because it's what they're used to, then wonder why everything is slow. Stop doing that.</p>
+
+<h2>The setup that actually works in 2026</h2>
+
+<p>Install WSL2 through the Microsoft Store. Pick Ubuntu 24.04. Don't bother with the older LTS versions. Don't bother with the Microsoft Store version of Ubuntu that ships with some customisations you don't need. Plain Ubuntu. It takes five minutes.</p>
+
+<p>Once you're in, update everything. sudo apt update && sudo apt upgrade. Then install build-essential, curl, git, and whatever language you're working with. For Python and Django, I use uv for package management now. It's significantly faster than pip and handles virtual environments without the headache of venv or Poetry.</p>
+
+<p>Docker runs natively inside WSL2. No Docker Desktop required. Install docker-ce from the official Docker repo. It shares the WSL2 kernel so there's no virtualisation overhead. For databases, I run PostgreSQL directly in WSL rather than in Docker. One less layer to debug when something goes wrong.</p>
+
+<h2>VS Code integration that actually works</h2>
+
+<p>The Remote WSL extension is the bit that makes this whole setup viable. Install it, then open VS Code from inside WSL by typing "code ." in your project directory. VS Code opens on Windows but the terminal, extensions, and language servers all run inside Linux. It's seamless.</p>
+
+<p>One thing that catches people: the terminal inside VS Code defaults to whatever shell you set. If you haven't changed it from bash to something else, it's bash. I use zsh with a minimal setup. No Oh My Zsh. No fancy prompt. Just enough to see my git branch and whether I have uncommitted changes.</p>
+
+<h2>What still breaks</h2>
+
+<p>Networking. WSL2 has its own IP address that changes every time you restart. If you're running a dev server and trying to access it from Windows, use localhost. It forwards automatically. If you're trying to access a WSL service from another machine on your network, you need to set up port forwarding in Windows. This is annoying and there's no clean solution.</p>
+
+<p>GPU passthrough works for machine learning workloads but it's not as fast as native Linux. If you're doing serious ML training, you probably want a dedicated Linux machine. For development and testing, it's fine.</p>
+
+<p>Windows updates sometimes break WSL. It's happened to me twice in two years. Each time the fix was "wsl --shutdown" followed by a reboot. Annoying but not catastrophic.</p>
+
+<h2>Should you switch from Mac?</h2>
+
+<p>If you already have a Mac and you're happy, stay. If you're on Windows and considering buying a Mac just for development, try WSL first. The money you save buys a lot of cloud compute.</p>
+
+<p>I've built the sites you see on <a href="/">my portfolio</a> entirely in WSL. Django backends, React frontends, PostgreSQL databases. It works. Browse the <a href="/projects/">projects page</a> for real examples of what's possible from a Windows laptop.</p>
+</article>

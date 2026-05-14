@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | {{ site_name|default:"Our Blog" }}</title>
+    <meta name="description" content="Articles, guides, and insights from {{ site_name|default:"our team" }}.">
+    <link rel="canonical" href="{{ canonical_url|default:'' }}">
+</head>
+<body>
+    <header>
+        <a href="/">← Back to {{ site_name|default:"Home" }}</a>
+        <h1>Blog</h1>
+    </header>
+
+    <main>
+        {% if posts %}
+            {% for post in posts %}
+            <article>
+                <h2><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></h2>
+                {% if post.date %}<time>{{ post.date }}</time>{% endif %}
+                {% if post.snippet %}<p>{{ post.snippet }}</p>{% endif %}
+            </article>
+            {% endfor %}
+        {% else %}
+            <p>No posts yet. Check back soon.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; {% now "Y" %} {{ site_name|default:"" }}</p>
+    </footer>
+</body>
+</html>
