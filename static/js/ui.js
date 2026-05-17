@@ -67,21 +67,40 @@ function initSmoothScroll() {
     });
 }
 
-// Intersection Observer animations
+// Scroll-triggered reveal animations using IntersectionObserver
 function initAnimations() {
-    if (!('IntersectionObserver' in window)) return;
+    if (!('IntersectionObserver' in window)) {
+        // Fallback: show everything immediately on older browsers
+        document.querySelectorAll('[data-animate]').forEach(el => {
+            el.classList.add('revealed');
+        });
+        return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-up');
+                // Add a staggered delay based on element index within its section
+                const siblings = entry.target.parentElement
+                    ? entry.target.parentElement.querySelectorAll('[data-animate]')
+                    : [];
+                const idx = Array.from(siblings).indexOf(entry.target);
+                const delay = idx >= 0 ? idx * 100 : 0; // 100ms stagger
+
+                setTimeout(() => {
+                    entry.target.classList.add('revealed');
+                }, delay);
+
+                // Stop watching once revealed — stays visible forever
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -30px 0px' // Trigger slightly before element enters viewport
+    });
 
     document.querySelectorAll('[data-animate]').forEach(el => {
-        el.style.opacity = '0';
         observer.observe(el);
     });
 }

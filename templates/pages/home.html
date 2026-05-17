@@ -145,11 +145,14 @@
                         <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-600 group-hover:text-accent-400 transition-colors"></i>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed mb-4">{{ project.desc }}</p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2 mb-4">
                         {% for tag in project.tags %}
                         <span class="tech-tag">{{ tag }}</span>
                         {% endfor %}
                     </div>
+                    <span class="inline-flex items-center gap-1 text-accent-400 group-hover:text-accent-300 text-sm font-medium transition-colors">
+                        Visit {{ project.name }} <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </span>
                 </div>
             </a>
             {% endfor %}
