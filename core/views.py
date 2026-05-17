@@ -15,7 +15,7 @@ PROJECTS = [
         'long_desc': 'Holiday price comparison platform aggregating deals from 7+ UK travel providers. Real-time destination search cards, Commission Junction affiliate integration (IBEROSTAR, Hotels.com, CheapTickets, EconomyBookings), and multi-network monetisation.',
         'tags': ['Django', 'Python', 'PostgreSQL', 'Web Scraping', 'Affiliate'],
         'status': 'live',
-        'image': '',
+        'image': 'img/projects/holidayhub.svg',
     },
     {
         'name': 'catn.site',
@@ -25,7 +25,7 @@ PROJECTS = [
         'long_desc': 'Category N write-off vehicle aggregator pulling from eBay, Gumtree, AutoTrader, Facebook Marketplace, and Copart. 6,650+ active listings with real-time deal ticker and advanced search.',
         'tags': ['Django', 'Python', 'PostgreSQL', 'Scraping', 'Automation'],
         'status': 'live',
-        'image': '',
+        'image': 'img/projects/catn.svg',
     },
     {
         'name': 'urentmy.com',
@@ -35,7 +35,7 @@ PROJECTS = [
         'long_desc': 'Peer-to-peer rental marketplace with 2M pre-loaded business profiles across 100k+ locations. Time slot bookings, events, services, adverts, and affiliate programme. Stripe payments live.',
         'tags': ['Django', 'Python', 'Stripe', 'PostgreSQL', 'Marketplace'],
         'status': 'live',
-        'image': '',
+        'image': 'img/projects/urentmy.svg',
     },
     {
         'name': 'policygen.site',
@@ -45,7 +45,7 @@ PROJECTS = [
         'long_desc': 'AI-powered legal document generator producing customised privacy policies, T&Cs, cookie policies, disclaimers, and refund policies. GDPR, CCPA, and LGPD compliant. From £9/mo vs £500+ lawyer fees.',
         'tags': ['Django', 'Python', 'AI', 'DeepSeek', 'Document Generation'],
         'status': 'live',
-        'image': '',
+        'image': 'img/projects/policygen.svg',
     },
     {
         'name': 'rankyu.co',
@@ -55,7 +55,7 @@ PROJECTS = [
         'long_desc': 'AI SEO agent connecting Google Analytics 4 and Search Console. Delivers analysis and recommendations to Slack. DeepSeek-powered engine watches traffic patterns, detects ranking drops, and suggests fixes.',
         'tags': ['Django', 'React', 'AI', 'DeepSeek', 'Slack API'],
         'status': 'live',
-        'image': '',
+        'image': 'img/projects/rankyu.svg',
     },
 ]
 

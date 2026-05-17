@@ -20,17 +20,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for project in projects %}
-            <div class="glass rounded-2xl overflow-hidden card-lift flex flex-col" data-animate>
+            <div class="glass rounded-2xl overflow-hidden card-lift flex flex-col group" data-animate>
                 <!-- Image -->
                 <div class="relative h-52 bg-gradient-to-br from-dark-300 to-dark-400 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-dots opacity-30"></div>
                     {% if project.image %}
-                    <img src="{{ project.image }}" alt="{{ project.name }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark-500/90 to-transparent"></div>
+                    {% load static %}
+                    <img src="{% static project.image %}" alt="{{ project.name }}" class="relative z-10 w-36 h-36 object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
                     {% else %}
                     <span class="font-mono text-accent-500/20 text-7xl font-bold select-none">{{ project.name|slice:":1" }}</span>
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark-500/80 to-transparent"></div>
                     {% endif %}
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-500/80 to-transparent"></div>
                     <div class="absolute bottom-4 left-4 flex items-center gap-2">
                         <span class="px-2.5 py-1 rounded-full bg-dark-500/80 backdrop-blur text-xs font-mono text-accent-400 border border-accent-500/20">
                             {{ project.tech }}

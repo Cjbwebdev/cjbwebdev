@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="200" height="200" rx="40" fill="url(#bg)"/>
+  <!-- Sun -->
+  <circle cx="100" cy="85" r="32" fill="url(#sun)" opacity="0.9"/>
+  <!-- Palm tree trunk -->
+  <rect x="96" y="75" width="8" height="55" rx="3" fill="#451a03"/>
+  <!-- Palm fronds -->
+  <ellipse cx="68" cy="75" rx="35" ry="10" fill="#16a34a" transform="rotate(-30 68 75)"/>
+  <ellipse cx="132" cy="75" rx="35" ry="10" fill="#15803d" transform="rotate(30 132 75)"/>
+  <ellipse cx="100" cy="60" rx="30" ry="8" fill="#22c55e"/>
+  <!-- Ocean wave -->
+  <path d="M0 160 Q25 150 50 160 Q75 170 100 160 Q125 150 150 160 Q175 170 200 160 L200 200 L0 200Z" fill="#0ea5e9" opacity="0.6"/>
+  <path d="M0 175 Q30 165 60 175 Q90 185 120 175 Q150 165 180 175 L200 175 L200 200 L0 200Z" fill="#0284c7" opacity="0.5"/>
+  <!-- Text -->
+  <text x="100" y="195" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="800" fill="white" letter-spacing="1">HOLIDAYHUB</text>
+</svg>

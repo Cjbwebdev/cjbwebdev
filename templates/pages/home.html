@@ -135,7 +135,12 @@
                 <!-- Project Image -->
                 <div class="relative h-48 bg-gradient-to-br from-dark-300 to-dark-400 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-dots opacity-30"></div>
+                    {% if project.image %}
+                    {% load static %}
+                    <img src="{% static project.image %}" alt="{{ project.name }}" class="relative z-10 w-32 h-32 object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+                    {% else %}
                     <span class="font-mono text-accent-500/30 text-6xl font-bold select-none">{{ project.name|slice:":1" }}</span>
+                    {% endif %}
                     <div class="absolute inset-0 bg-gradient-to-t from-dark-500/80 to-transparent"></div>
                     <span class="absolute bottom-4 left-4 text-xs font-mono text-accent-400/60">{{ project.tech }}</span>
                 </div>
