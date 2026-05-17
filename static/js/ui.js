@@ -67,11 +67,38 @@ function initSmoothScroll() {
     });
 }
 
-// Scroll-triggered reveal animations using IntersectionObserver
+// Scroll-triggered reveal animations
 function initAnimations() {
+    const animated = document.querySelectorAll('[data-animate]');
+    if (!animated.length) return;
+
+    // Step 1: Immediately hide all animated elements.
+    // This runs synchronously so there's no visible flash.
+    animated.forEach(el => el.classList.add('anim-hidden'));
+
+    // Step 2: Check which elements are already in the viewport
+    // and reveal them immediately (no need to wait for scroll).
+    const inView = [];
+    animated.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            inView.push(el);
+        }
+    });
+
+    // Reveal in-view elements with staggered delay
+    inView.forEach((el, i) => {
+        setTimeout(() => {
+            el.classList.remove('anim-hidden');
+            el.classList.add('revealed');
+        }, i * 100);
+    });
+
+    // Step 3: Set up observer for elements below the fold
     if (!('IntersectionObserver' in window)) {
-        // Fallback: show everything immediately on older browsers
-        document.querySelectorAll('[data-animate]').forEach(el => {
+        // Fallback: show everything
+        animated.forEach(el => {
+            el.classList.remove('anim-hidden');
             el.classList.add('revealed');
         });
         return;
@@ -80,28 +107,33 @@ function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add a staggered delay based on element index within its section
-                const siblings = entry.target.parentElement
-                    ? entry.target.parentElement.querySelectorAll('[data-animate]')
-                    : [];
-                const idx = Array.from(siblings).indexOf(entry.target);
-                const delay = idx >= 0 ? idx * 100 : 0; // 100ms stagger
+                // Stagger based on position among remaining hidden siblings
+                const hiddenSiblings = Array.from(
+                    entry.target.parentElement
+                        ? entry.target.parentElement.querySelectorAll('[data-animate].anim-hidden:not(.revealed)')
+                        : []
+                );
+                const idx = hiddenSiblings.indexOf(entry.target);
+                const delay = idx >= 0 ? idx * 100 : 0;
 
                 setTimeout(() => {
+                    entry.target.classList.remove('anim-hidden');
                     entry.target.classList.add('revealed');
                 }, delay);
 
-                // Stop watching once revealed — stays visible forever
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -30px 0px' // Trigger slightly before element enters viewport
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px'
     });
 
-    document.querySelectorAll('[data-animate]').forEach(el => {
-        observer.observe(el);
+    // Only observe elements not already revealed
+    animated.forEach(el => {
+        if (!el.classList.contains('revealed')) {
+            observer.observe(el);
+        }
     });
 }
 
