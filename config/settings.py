@@ -8,7 +8,7 @@ DEBUG = os.environ.get("DEBUG", "True") == "True"
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 # If you want to allow the purchased domain by default, add it here or set ALLOWED_HOSTS env var.
 if ALLOWED_HOSTS == ['*']:
-    ALLOWED_HOSTS = ['*', 'streamingvault.online']
+    ALLOWED_HOSTS = ['*', 'cjbwebdevelopment.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
