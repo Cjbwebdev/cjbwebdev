@@ -1,34 +1,30 @@
 # cjbwebdevelopment.com — Roadmap
 
-> **Last Audit:** 2026-05-25 | **Server:** Hetzner CX23 (65.109.130.180) | **Port:** 8058
+> **Last Audit:** 2026-05-25 | **Last Update:** 2026-05-25 | **Server:** Hetzner CX23 (65.109.130.180) | **Port:** 8058
 
 ## 📊 Current State
 - **Live URL:** https://cjbwebdevelopment.com
-- **Container:** cjbwebdev, network=host
-- **DB:** SQLite (NOT PostgreSQL — only site using SQLite)
-- **Stack:** Django, portfolio/freelancer site
-- **Revenue:** £0 — portfolio site, not monetized directly
+- **DB:** SQLite — only site not on PostgreSQL
+- **Portfolio:** All 5 live projects showcased with case studies
 
-## 🔄 Audit Re-Check — 2026-05-25
-
-### ✅ RESOLVED
-| # | Issue | How Verified |
+## ✅ COMPLETED (2026-05-25)
+| # | Task | Result |
 |---|---|---|
-| 1 | Migrations not applied (all `[ ]`) | Ran `python manage.py migrate` — all applied OK |
+| 1 | Migrations applied | All Django migrations running |
+| 2 | sitemap.xml | Custom XML sitemap returning 200 |
+| 3 | robots.txt | With sitemap URL reference |
+| 4 | HSTS header | max-age=31536000 via nginx |
+| 5 | CSP header | Added via nginx |
+| 6 | Permissions-Policy header | Added via nginx |
+| 7 | Portfolio case studies | All 5 projects already listed |
 
-### 🔴 REMAINING
+## 🟡 REMAINING
 | # | Issue | Priority |
 |---|---|---|
-| 1 | **No sitemap.xml** — returns 404 | HIGH |
-| 2 | **No robots.txt** — returns 404 | HIGH |
-| 3 | **Missing HSTS header** — no Strict-Transport-Security | HIGH |
-| 4 | **Missing CSP header** — no Content-Security-Policy | MEDIUM |
-| 5 | **SQLite in production** — all other sites use PostgreSQL. SQLite has concurrency limits. | MEDIUM |
-| 6 | **Missing Permissions-Policy header** | LOW |
+| 1 | **SQLite → PostgreSQL** — Only site not on PostgreSQL | MEDIUM |
+| 2 | **No blog content** — Blog section exists but empty | LOW |
 
-### 🎯 TOP 5 PRIORITY ACTIONS
-1. **Add sitemap.xml** — Django sitemap framework for SEO
-2. **Add robots.txt** — With proper sitemap URL
-3. **Add HSTS + CSP headers** — via nginx (same pattern as catn fix)
-4. **Migrate to PostgreSQL** — Match all other projects' infrastructure
-5. **Add portfolio case studies** — Showcase the 5 other live projects
+### 🎯 NEXT ACTIONS
+1. Migrate to PostgreSQL (same Hetzner host, new DB)
+2. Write 3 blog posts about Django development
+
