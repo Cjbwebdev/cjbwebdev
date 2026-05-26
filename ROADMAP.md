@@ -1,13 +1,22 @@
 # cjbwebdevelopment.com — Roadmap
 
-> **Last Audit:** 2026-05-25 | **Last Update:** 2026-05-25 | **Server:** Hetzner CX23 (65.109.130.180) | **Port:** 8058
+> **Last Audit:** 2026-05-26 | **Last Update:** 2026-05-26 | **Server:** Hetzner CX23 (65.109.130.180) | **Port:** 8058
 
 ## 📊 Current State
 - **Live URL:** https://cjbwebdevelopment.com
 - **DB:** SQLite — only site not on PostgreSQL
 - **Portfolio:** All 5 live projects showcased with case studies
 
-## ✅ COMPLETED (2026-05-25)
+## ✅ COMPLETED
+
+### 2026-05-26
+| # | Task | Result |
+|---|---|---|
+| 8 | CSP broke Tailwind CDN | Built Tailwind CSS locally (36KB, v4), removed CDN dependency, site fully styled |
+| 9 | Blog 500 errors | patched blog_post view to return 404 for missing templates |
+| 10 | Security middleware | Added SecurityHeadersMiddleware with proper CSP headers |
+
+### 2026-05-25
 | # | Task | Result |
 |---|---|---|
 | 1 | Migrations applied | All Django migrations running |
