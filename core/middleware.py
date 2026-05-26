@@ -1,12 +1,12 @@
 """
 Security middleware for CJB Web Development — adds Content-Security-Policy
-and other security headers with proper CDN allowlisting so Tailwind and
-Font Awesome load correctly through Cloudflare.
+and other security headers. Font-Awesome CDN and Google Fonts are allowlisted
+for icons and web fonts. Tailwind CSS is pre-built and served locally (no CDN needed).
 """
 
 CSP_POLICY = (
     "default-src 'self'; "
-    "script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; "
+    "script-src 'self' 'unsafe-inline'; "
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com "
     "https://cdnjs.cloudflare.com; "
     "img-src 'self' data: https:; "
@@ -31,7 +31,7 @@ class SecurityHeadersMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
 
-        # Content Security Policy — must allow CDNs for Tailwind + Font Awesome
+        # Content Security Policy
         response["Content-Security-Policy"] = CSP_POLICY
 
         # Prevent MIME type sniffing
