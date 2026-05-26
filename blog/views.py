@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.http import Http404
+from django.template.loader import get_template
+from django.template import TemplateDoesNotExist
 from pathlib import Path
 import os, re
 
@@ -24,4 +27,10 @@ def blog_index(request):
     return render(request, 'blog/index.html', {'posts': posts})
 
 def blog_post(request, slug):
-    return render(request, f'blog/{slug}.html')
+    """Render a blog post by slug -- returns 404 if template doesn't exist."""
+    template_name = f'blog/{slug}.html'
+    try:
+        get_template(template_name)
+    except TemplateDoesNotExist:
+        raise Http404(f"Blog post '{slug}' not found.")
+    return render(request, template_name)
