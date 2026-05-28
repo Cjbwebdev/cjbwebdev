@@ -46,4 +46,7 @@ class SecurityHeadersMiddleware:
         # Cross-origin isolation
         response["Cross-Origin-Opener-Policy"] = "same-origin"
 
+        # Permissions-Policy: restrict sensitive browser features
+        response["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
+
         return response
