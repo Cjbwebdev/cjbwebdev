@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Privacy Policy | CJB Web Development{% endblock %}
+{% block meta_description %}How CJB Web Development collects, uses and protects your personal data. GDPR compliant privacy policy for cjbwebdevelopment.com.{% endblock %}
+{% block og_title %}Privacy Policy | CJB Web Development{% endblock %}
+{% block og_description %}How CJB Web Development collects, uses and protects your personal data.{% endblock %}
+{% block canonical_url %}/privacy/{% endblock %}
+
+{% block content %}
+<section class="relative pt-12 lg:pt-20 pb-12 lg:pb-20 overflow-hidden">
+    <div class="absolute inset-0 bg-grid"></div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4 block">Legal</span>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">Privacy Policy</h1>
+        <p class="text-gray-400 text-lg leading-relaxed">Last updated: October 2026</p>
+    </div>
+</section>
+
+<section class="pb-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-gray-300 leading-relaxed">
+        <div>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Who I am</h2>
+            <p>CJB Web Development is a UK based software development business run by Curtis Booth. This site is cjbwebdevelopment.com. I am the data controller for any personal data you provide through this site.</p>
+        </div>
+
+        <div>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">What I collect</h2>
+            <p>When you use the contact form or the hire form, I collect the information you choose to give me: your name, email address, and the details of your enquiry. I do not collect any data beyond what you submit.</p>
+        </div>
+
+        <div>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">How I use it</h2>
+            <p>I use your details only to respond to your enquiry and, if you become a client, to deliver the work we agree on. I do not sell, rent, or share your personal data with third parties for marketing.</p>
+        </div>
+
+        <div>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Cookies</h2>
+            <p>This site uses only essential cookies required for it to function correctly. I do not use advertising or tracking cookies. Where a cookie is set, it is limited to the minimum needed for the site to work.</p>
+        </div>
+
+        <div>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Third party services</h2>
+            <p>Where I use a third party to process data on my behalf (for example, to deliver form submissions by email), that provider acts only on my instructions and is not permitted to use your data for its own purposes.</p>
+        </div>
+
+        <div>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">How long I keep data</h2>
+            <p>I keep enquiry data only as long as needed to handle your request and any follow up. Once it is no longer needed, it is deleted.</p>
+        </div>
+
+        <div>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Your rights</h2>
+            <p>You can ask me to access, correct, or delete the personal data I hold about you at any time. To do so, contact me through the contact page and I will respond within one month.</p>
+        </div>
+
+        <div>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Contact</h2>
+            <p>For any privacy questions, use the <a href="{% url 'core:contact' %}" class="text-accent-400 hover:underline">contact form</a>.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

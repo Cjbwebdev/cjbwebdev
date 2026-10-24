@@ -161,7 +161,7 @@ class TestContactView(TestCase):
         self.assertIn('jane@example.com', email.body)
         self.assertIn('Can you build me a site?', email.body)
         self.assertEqual(email.from_email, settings.DEFAULT_FROM_EMAIL)
-        self.assertEqual(email.to, ['support@cjbwebdevelopment.com'])
+        self.assertEqual(email.to, ['curtisbooth87@yahoo.com'])
 
     def test_16_contact_post_success_message(self):
         """Successful contact submission adds a success message."""

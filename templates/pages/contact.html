@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
-{% block title %}Contact — CJB Web Development | Django Developer Devon{% endblock %}
-{% block meta_description %}Get in touch with CJB Web Development for Django development, hosting, and contract work. Based in Devon, UK. Email support@cjbwebdevelopment.com{% endblock %}
+{% block title %}Contact, CJB Web Development | Django Developer UK{% endblock %}
+{% block meta_description %}Get in touch with CJB Web Development for Django development, hosting, and contract work. Based in the UK, UK. Email {% endblock %}
 
 {% block content %}
 <!-- Header -->
@@ -10,7 +10,7 @@
         <span class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4 block">Contact</span>
         <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-4">Let's Talk</h1>
         <p class="text-gray-400 text-lg max-w-2xl">
-            Have a project in mind? Need a Django contractor? Just want to ask a question? Drop me a message — I read every one.
+            Have a project in mind? Need a Django contractor? Just want to ask a question? Drop me a message, I read every one.
         </p>
     </div>
 </section>
@@ -62,7 +62,7 @@
                             <label for="id_message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
                             <textarea name="message" id="id_message" rows="5" required
                                 class="w-full px-4 py-3 bg-dark-400 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-all text-sm resize-none"
-                                placeholder="Tell me about your project, timeline, budget — whatever you've got."></textarea>
+                                placeholder="Tell me about your project, timeline, budget, whatever you've got."></textarea>
                             {% if form.message.errors %}<p class="text-red-400 text-xs mt-1">{{ form.message.errors.0 }}</p>{% endif %}
                         </div>
 
@@ -77,13 +77,7 @@
             <!-- Contact Info -->
             <div class="lg:col-span-2 space-y-6">
                 <!-- Email -->
-                <div class="glass rounded-2xl p-6" data-animate>
-                    <div class="w-10 h-10 rounded-lg bg-accent-500/10 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-envelope text-accent-400"></i>
-                    </div>
-                    <h3 class="text-white font-semibold mb-1">Email</h3>
-                    <a href="mailto:support@cjbwebdevelopment.com" class="text-gray-400 hover:text-accent-400 transition-colors text-sm break-all">support@cjbwebdevelopment.com</a>
-                </div>
+<!-- Contact Form -->                <div class="glass rounded-2xl p-6" data-animate>                    <div class="w-10 h-10 rounded-lg bg-accent-500/10 flex items-center justify-center mb-4">                        <i class="fa-solid fa-paper-plane text-accent-400"></i>                    </div>                    <h3 class="text-white font-semibold mb-1">Contact</h3>                    <p class="text-gray-400 text-sm">Use the form below, I usually respond within a few hours.</p>                </div>
 
                 <!-- Location -->
                 <div class="glass rounded-2xl p-6" data-animate>
@@ -91,7 +85,7 @@
                         <i class="fa-solid fa-location-dot text-accent-400"></i>
                     </div>
                     <h3 class="text-white font-semibold mb-1">Location</h3>
-                    <p class="text-gray-400 text-sm">Devon, United Kingdom</p>
+                    <p class="text-gray-400 text-sm">United Kingdom</p>
                     <p class="text-gray-500 text-xs mt-1">Available for remote contract work across the UK</p>
                 </div>
 
@@ -102,7 +96,7 @@
                     </div>
                     <h3 class="text-white font-semibold mb-1">Response Time</h3>
                     <p class="text-gray-400 text-sm">Usually within 24 hours</p>
-                    <p class="text-gray-500 text-xs mt-1">Weekdays — sometimes faster on the same day</p>
+                    <p class="text-gray-500 text-xs mt-1">Weekdays, sometimes faster on the same day</p>
                 </div>
 
                 <!-- Social -->

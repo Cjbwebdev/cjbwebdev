@@ -8,10 +8,27 @@ def robots_txt(request):
 def sitemap_xml(request):
     urls = [
         "https://cjbwebdevelopment.com/",
+        "https://cjbwebdevelopment.com/about/",
+        "https://cjbwebdevelopment.com/hire/",
         "https://cjbwebdevelopment.com/contact/",
         "https://cjbwebdevelopment.com/services/",
         "https://cjbwebdevelopment.com/portfolio/",
         "https://cjbwebdevelopment.com/blog/",
+        "https://cjbwebdevelopment.com/django-developer/london/",
+        "https://cjbwebdevelopment.com/django-developer/berlin/",
+        "https://cjbwebdevelopment.com/django-developer/amsterdam/",
+        "https://cjbwebdevelopment.com/django-developer/dublin/",
+        "https://cjbwebdevelopment.com/django-developer/paris/",
+        "https://cjbwebdevelopment.com/django-developer/barcelona/",
+        "https://cjbwebdevelopment.com/django-developer/munich/",
+        "https://cjbwebdevelopment.com/django-developer/stockholm/",
+        "https://cjbwebdevelopment.com/django-developer/copenhagen/",
+        "https://cjbwebdevelopment.com/django-developer/vienna/",
+        "https://cjbwebdevelopment.com/django-developer/zurich/",
+        "https://cjbwebdevelopment.com/django-developer/brussels/",
+        "https://cjbwebdevelopment.com/pricing/",
+        "https://cjbwebdevelopment.com/privacy/",
+        "https://cjbwebdevelopment.com/terms/",
     ]
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for url in urls:

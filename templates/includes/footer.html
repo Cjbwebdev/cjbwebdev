@@ -12,16 +12,13 @@
                     </span>
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                    Professional Python/Django development in Devon. Custom web applications, automation, and hosting for businesses that need reliable digital solutions.
+                    Professional Python/Django development in the UK. Custom web applications, automation, and hosting for businesses that need reliable digital solutions.
                 </p>
                 <div class="flex gap-3">
-                    <a href="#" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all">
+                    <a href="https://github.com/Cjbwebdev" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all" aria-label="GitHub">
                         <i class="fa-brands fa-github"></i>
                     </a>
-                    <a href="mailto:support@cjbwebdevelopment.com" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all">
+                    <a href="/contact/" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-accent-500/20 flex items-center justify-center text-gray-400 hover:text-accent-400 transition-all" aria-label="Contact">
                         <i class="fa-solid fa-envelope"></i>
                     </a>
                 </div>
@@ -55,11 +52,11 @@
                 <ul class="space-y-3 text-sm">
                     <li class="flex items-start gap-2 text-gray-400">
                         <i class="fa-solid fa-envelope text-accent-500 mt-0.5"></i>
-                        <a href="mailto:support@cjbwebdevelopment.com" class="hover:text-accent-400 transition-colors">support@cjbwebdevelopment.com</a>
+                        <a href="{% url 'core:contact' %}" class="hover:text-accent-400 transition-colors">Contact form</a>
                     </li>
                     <li class="flex items-start gap-2 text-gray-400">
                         <i class="fa-solid fa-location-dot text-accent-500 mt-0.5"></i>
-                        <span>Devon, United Kingdom</span>
+                        <span>United Kingdom</span>
                     </li>
                     <li class="flex items-start gap-2 text-gray-400">
                         <i class="fa-solid fa-clock text-accent-500 mt-0.5"></i>
@@ -75,8 +72,9 @@
                 &copy; {% now "Y" %} CJB Web Development. All rights reserved.
             </p>
             <div class="flex gap-6">
-                <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy Policy</a>
-                <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms</a>
+                <a href="{% url 'core:privacy' %}" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy Policy</a>
+                <a href="{% url 'core:terms' %}" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms</a>
+                <a href="{% url 'core:pricing' %}" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Pricing</a>
             </div>
         </div>
     </div>

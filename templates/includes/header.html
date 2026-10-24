@@ -16,13 +16,15 @@
                 <a href="{% url 'core:home' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'home' %}text-accent-400 bg-white/5{% endif %}">Home</a>
                 <a href="{% url 'core:services' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'services' %}text-accent-400 bg-white/5{% endif %}">Services</a>
                 <a href="{% url 'core:portfolio' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'portfolio' %}text-accent-400 bg-white/5{% endif %}">Portfolio</a>
+                <a href="{% url 'core:about' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'about' %}text-accent-400 bg-white/5{% endif %}">About</a>
+                <a href="{% url 'core:hire' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'hire' %}text-accent-400 bg-white/5{% endif %}">Book a call</a>
                 <a href="{% url 'core:contact' %}" class="nav-link px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5 {% if request.resolver_match.url_name == 'contact' %}text-accent-400 bg-white/5{% endif %}">Contact</a>
             </div>
 
             <!-- CTA -->
             <div class="hidden lg:block">
-                <a href="{% url 'core:contact' %}" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-5 py-2.5 rounded-lg text-sm transition-all hover:shadow-lg hover:shadow-accent-500/20">
-                    Start a Project <i class="fa-solid fa-arrow-right text-xs"></i>
+                <a href="{% url 'core:hire' %}" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-5 py-2.5 rounded-lg text-sm transition-all hover:shadow-lg hover:shadow-accent-500/20">
+                    Book a call <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
             </div>
 
@@ -40,10 +42,12 @@
                 <a href="{% url 'core:home' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Home</a>
                 <a href="{% url 'core:services' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Services</a>
                 <a href="{% url 'core:portfolio' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Portfolio</a>
+                <a href="{% url 'core:about' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">About</a>
+                <a href="{% url 'core:hire' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Book a call</a>
                 <a href="{% url 'core:contact' %}" class="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium">Contact</a>
                 <hr class="border-white/5 my-2">
-                <a href="{% url 'core:contact' %}" class="mx-4 text-center bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-5 py-3 rounded-xl transition-all text-sm">
-                    Start a Project <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                <a href="{% url 'core:hire' %}" class="mx-4 text-center bg-accent-500 hover:bg-accent-400 text-dark-500 font-semibold px-5 py-3 rounded-xl transition-all text-sm">
+                    Book a call <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
                 </a>
             </div>
         </div>
