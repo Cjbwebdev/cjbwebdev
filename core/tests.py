@@ -325,17 +325,17 @@ class TestBlogViews(TestCase):
             )
             self.assertEqual(response.status_code, 200)
 
-    def test_33_blog_post_invalid_slug_raises_template_does_not_exist(self):
-        """An invalid blog post slug raises TemplateDoesNotExist (blog view does not catch it).
-        
-        In production with DEBUG=False this would become a 500; we verify the
-        exception type to ensure it's a missing-template issue, not a crash.
+    def test_33_blog_post_invalid_slug_returns_404(self):
+        """An unknown blog slug is a 404, not a 500.
+
+        The view checks the template exists and raises Http404 when it does not.
+        An exception here would be served as a 500 with DEBUG off, so the status
+        code is the thing worth asserting.
         """
-        from django.template import TemplateDoesNotExist
-        with self.assertRaises(TemplateDoesNotExist):
-            self.client.get(
-                reverse('blog:post', kwargs={'slug': 'nonexistent-post-xyz-123'})
-            )
+        response = self.client.get(
+            reverse('blog:post', kwargs={'slug': 'nonexistent-post-xyz-123'})
+        )
+        self.assertEqual(response.status_code, 404)
 
     def test_34_blog_index_html_content(self):
         """Blog index has proper HTML structure."""

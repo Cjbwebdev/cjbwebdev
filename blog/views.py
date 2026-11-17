@@ -14,10 +14,16 @@ def blog_index(request):
             if f.name in ('index.html', 'post_template.html'):
                 continue
             content = f.read_text()
-            title = re.search(r'<title>(.*?)</title>', content, re.I)
-            title = title.group(1).split('|')[0].strip().replace('&#x27;', "'") if title else f.stem.replace('-', ' ').title()
+            title = re.search(r'{% block title %}(.*?){% endblock %}', content, re.I)
+            if title:
+                title = title.group(1).split('|')[0].strip().replace('&#x27;', "'")
+            else:
+                tm = re.search(r'<title>(.*?)</title>', content, re.I)
+                title = tm.group(1).split('|')[0].strip().replace('&#x27;', "'") if tm else f.stem.replace('-', ' ').title()
             date_m = re.search(r'<meta name="date" content="(.*?)"', content)
-            snippet = re.search(r'<meta name="description" content="(.*?)"', content)
+            snippet = re.search(r'{% block meta_description %}(.*?){% endblock %}', content, re.I)
+            if not snippet:
+                snippet = re.search(r'<meta name="description" content="(.*?)"', content)
             posts.append({
                 'slug': f.stem,
                 'title': title,
