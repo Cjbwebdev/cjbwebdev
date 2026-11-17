@@ -1,5 +1,14 @@
+{% extends "base.html" %}
+{% block title %}WSL Web Development Setup 2026, Why I Stopped Dual Booting | CJB Web Development{% endblock %}
+{% block meta_description %}How I run every Django build inside WSL2 on Windows in 2026: filesystem layout, VS Code remote, Postgres, Docker and the gotchas that actually cost time.{% endblock %}
+{% block canonical_url %}/blog/wsl-web-development-setup-2026/{% endblock %}
+{% block og_title %}WSL Web Development Setup 2026 | CJB Web Development{% endblock %}
+{% block og_url %}/blog/wsl-web-development-setup-2026/{% endblock %}
+{% block content %}
+<section class="pt-12 pb-16">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-invert prose-lg">
 <article>
-<h2>Stop dual booting. WSL is good enough now.</h2>
+<h1>Stop dual booting. WSL is good enough now.</h1>
 
 <p>I've built and deployed over a dozen SaaS products in the last two years. Every single one was developed inside WSL on a Windows machine. Not a Mac. Not a dedicated Linux box. Just Windows with the Linux kernel sitting underneath it. And it works better than most people realise.</p>
 
@@ -39,3 +48,6 @@
 
 <p>I've built the sites you see on <a href="/">my portfolio</a> entirely in WSL. Django backends, React frontends, PostgreSQL databases. It works. Browse the <a href="/projects/">projects page</a> for real examples of what's possible from a Windows laptop.</p>
 </article>
+  </div>
+</section>
+{% endblock %}

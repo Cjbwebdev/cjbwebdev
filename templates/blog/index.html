@@ -1,34 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | {{ site_name|default:"Our Blog" }}</title>
-    <meta name="description" content="Articles, guides, and insights from {{ site_name|default:"our team" }}.">
-    <link rel="canonical" href="{{ canonical_url|default:'' }}">
-</head>
-<body>
-    <header>
-        <a href="/">← Back to {{ site_name|default:"Home" }}</a>
-        <h1>Blog</h1>
-    </header>
-
-    <main>
-        {% if posts %}
-            {% for post in posts %}
-            <article>
-                <h2><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></h2>
-                {% if post.date %}<time>{{ post.date }}</time>{% endif %}
-                {% if post.snippet %}<p>{{ post.snippet }}</p>{% endif %}
-            </article>
-            {% endfor %}
-        {% else %}
-            <p>No posts yet. Check back soon.</p>
-        {% endif %}
-    </main>
-
-    <footer>
-        <p>&copy; {% now "Y" %} {{ site_name|default:"" }}</p>
-    </footer>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Blog, Django &amp; Hosting Notes | CJB Web Development{% endblock %}
+{% block meta_description %}Practical write-ups on Django development, WSL, hosting and SEO, from a UK Django contractor who ships every week.{% endblock %}
+{% block canonical_url %}/blog/{% endblock %}
+{% block og_title %}Blog | CJB Web Development{% endblock %}
+{% block og_url %}/blog/{% endblock %}
+{% block content %}
+<section class="pt-12 pb-8">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4 block">Blog</span>
+    <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-6">Notes from the build</h1>
+    <p class="text-gray-400 text-lg mb-10">Short, practical posts about Django, hosting and getting found in search. No fluff.</p>
+    {% if posts %}
+      <div class="space-y-6">
+      {% for post in posts %}
+        <article class="bg-white/5 border border-white/10 rounded-xl p-6">
+          <h2 class="text-xl font-semibold text-white mb-2"><a href="/blog/{{ post.slug }}/" class="hover:text-accent-400">{{ post.title }}</a></h2>
+          {% if post.date %}<time class="text-sm text-gray-500">{{ post.date }}</time>{% endif %}
+          {% if post.snippet %}<p class="text-gray-400 mt-3">{{ post.snippet }}</p>{% endif %}
+        </article>
+      {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-gray-400">No posts yet. Check back soon.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
