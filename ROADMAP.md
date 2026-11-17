@@ -69,3 +69,24 @@ reported as redirects, not as duplicate pages.
 - [x] /portfolio/ was 168 characters and ended "Built in the UK, UK." Rewritten to
       139 characters with the duplicated country removed.
 - [x] Whole sitemap re-checked: no page over 165 characters.
+
+### Site audit (17 Nov 2026)
+
+- [x] **The contact form had never delivered an email.** `EMAIL_HOST` was empty, so
+      Django's SMTP backend could not connect and every submission fell into the
+      "something went wrong" branch — enquiries from the one page that exists to win
+      work were lost. The container's storage had a dead Resend key (401). Fixed by
+      verifying `cjbwebdevelopment.com` in Resend (DKIM, SPF MX, SPF TXT and the
+      `rsend` CNAME published in Cloudflare), then recreating the container with
+      Resend SMTP credentials and `DEFAULT_FROM_EMAIL` on the real domain.
+      Verified end to end: a form submission produced a message the Resend API
+      reports as **delivered** to curtisbooth87@yahoo.com.
+- [x] **Dead links replaced.** The contact page's LinkedIn and GitHub icons both
+      pointed at `#`; the GitHub icon now opens github.com/Cjbwebdev and the second
+      slot is a mailto. The cookie banner's "Privacy Policy" link was also `#` — it
+      goes to /privacy/. Contact page now has zero `href="#"`.
+- [x] Homepage: one H1, 3,965px, nine sections, no overflow, all 13 internal links
+      200. Portfolio links (holidayhub.site, catn.site, urentmy.com) all live;
+      HolidayHub is a real 1,223-word page, not a stub.
+- [x] Contact form: server-side POST with CSRF, four required fields, every field
+      labelled. 25? tests: see test run.
