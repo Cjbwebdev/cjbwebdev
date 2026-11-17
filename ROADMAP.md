@@ -43,31 +43,29 @@
 
 ## Audit — cjbwebdevelopment.com (17 Nov 2026)
 
-Automated + rendered check of the live site. Every finding below was measured,
-not guessed: static checks read the HTML the public receives, rendered checks
-read the DOM after the app boots at 1280 and 390 pixels.
+Measured against the live site at 1280 and 390 pixels. Redirects are followed and
+reported as redirects, not as duplicate pages.
 
-### SEO and markup findings
-- [x] None found in the automated pass.
+### SEO and markup
+- [x] No issues found.
 
-### Rendered findings (DOM after boot)
-- [ ] **MED** tap targets under 40px: 12 (CJB Web Development, View All Services, View All Projects, London, Berlin, Amsterdam, Dublin, Paris)
-- [ ] **MED** mobile tap targets under 40px: 12
-- [ ] **MED** controls with no href: Decline, Accept All
-- [ ] Page height: desktop 3965px, mobile 3965px
-- [ ] Sections on the homepage: 5
-  - section.relative pt-16 lg:pt-24 pb-16 lg:pb-32 overflow-hi — 664px, 317 chars, "Django Developer Contractor in the UK"
-  - section.py-20 lg:py-28 bg-dark-600/50 — 903px, 610 chars, "Services"
-  - section.py-20 lg:py-28 — 1243px, 547 chars, "Featured Projects"
-  - section.py-16 bg-dark-600/50 — 66px, 140 chars, "(no heading)"
-  - section.py-20 lg:py-28 relative overflow-hidden — 364px, 153 chars, "Have a Django Project in Mind?"
+### Rendered (DOM after boot)
+- [ ] **MED** 12 tap targets under 40px on mobile
 - [x] H1 renders: "Django Developer Contractor in the UK"
+- [x] Page height: 3965px desktop, 3965px mobile
 
-### Manual UX pass (critical eye)
+### Manual UX pass
 
-- [ ] Hero: image present, text readable at 390 and 1280, CTA above the fold
-- [ ] Every section: no dead space, no clipped card, no orphan word in a heading
-- [ ] Every button/link: label says what happens, lands on the right page
-- [ ] Forms: labels, validation messages, success state
-- [ ] Trust: phone, insurance, real photos — no emoji, no stock-looking AI art
+- [ ] Hero: photo loads, text readable at both widths, one clear CTA above the fold
+- [ ] Section by section: no dead space, no clipped card, no orphan word in a heading
+- [ ] Every button and link: label says what happens and lands where it says
+- [ ] Forms: labels, inline validation, real success state
+- [ ] No emoji, no AI art, no repeated CTA wording
 
+### Metadata audit (17 Nov 2026)
+
+- [x] All 13 city pages had descriptions of 213-224 characters, so Google truncated
+      every one. Template now trims the market sentence: 117-122 characters.
+- [x] /portfolio/ was 168 characters and ended "Built in the UK, UK." Rewritten to
+      139 characters with the duplicated country removed.
+- [x] Whole sitemap re-checked: no page over 165 characters.
