@@ -90,3 +90,11 @@ reported as redirects, not as duplicate pages.
       HolidayHub is a real 1,223-word page, not a stub.
 - [x] Contact form: server-side POST with CSRF, four required fields, every field
       labelled. 25? tests: see test run.
+
+### Audit — interior pages (17 Nov 2026)
+
+- [x] Two page titles were over the 65-character limit: /services/ at 72 and the WSL
+      blog post at 80. Both shortened while keeping the subject first.
+- [ ] /contact/ (183 words) and /blog/ (169 words) are thin. The blog index needs an
+      intro paragraph explaining what the posts cover, not filler.
+- [ ] One blog post uses "seamless" — worth rewording in a copy pass.
