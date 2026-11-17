@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}Django Developer {{ city.name }} | Contract Work | CJB Web Development{% endblock %}
-{% block meta_description %}Django developer available for contract work in {{ city.name }}, {{ city.country }}. {{ city.market|truncatechars:150 }}{% endblock %}
+{% block meta_description %}Django developer for contract work in {{ city.name }}, {{ city.country }}. {{ city.market|truncatechars:62 }}{% endblock %}
 {% block og_title %}Django Developer {{ city.name }}, CJB Web Development{% endblock %}
 {% block og_description %}Remote Django contractor serving {{ city.name }}, {{ city.country }}. {{ city.market|truncatechars:120 }}{% endblock %}
 {% block canonical_url %}/django-developer/{{ city.slug }}/{% endblock %}
